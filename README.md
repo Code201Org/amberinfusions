@@ -15,7 +15,8 @@ Run `npm run dev` in this directory, then open http://127.0.0.1:4173. Use `PORT=
 - Full-height mobile navigation, compact programme selection and stacked phone layouts.
 - Seven public-facing infusion formulations with category filters and ingredient detail dialogs.
 - Four interactive programmes with keyboard-accessible tabs.
-- Expandable FAQs and a consultation-note planner with copy support.
+- Expandable FAQs and an enquiry planner with contextual WhatsApp messages, tap-to-call links and copy support.
+- A dedicated Doctors page with accessible Publications, Content and Videos tabs.
 - Local, compressed imagery and fonts; reduced-motion and keyboard support.
 - Fixed SVG arrows preserve button geometry and avoid font substitution in Safari and on iOS.
 
@@ -31,7 +32,9 @@ Brand palette and wording draw from Amber_Infusions_Brand_Guidelines_1.pdf. Form
 
 The public collection uses the seven core infusion names in the brand guidelines. The separate B12 add-on is omitted because the final specification removes it. B12 is described as a separate administration within Active, Cycle and Sustain, not as part of their IV mixture. The higher-dose Glow 2400 is not promoted in the public collection. Clinical doses, compounding instructions, disease-specific contexts, and internal sign-off documents are not published.
 
-The consultation CTA currently creates a note in the visitor's browser. It does not book or submit an appointment. Replace this with the business's verified booking, WhatsApp or contact destination when supplied. No phone number, email address, clinic location, pricing, credentials, reviews or results have been invented.
+The user supplied 8891548891 for communication and enquiries. `src/contact.json` is the single source for +91 88915 48891, `tel:+918891548891` and WhatsApp destination `918891548891`. The enquiry planner prepares a message containing the selected infusion or programme; the visitor can review and send it in WhatsApp or call the same number. Opening the planner or WhatsApp does not book an appointment. No personal or health information is stored by this site.
+
+The Doctors page is available at `/doctors` (and `/doctors.html`). It contains keyboard-accessible Publications, Content and Videos tabs, with category-specific resource-enquiry messages. The user currently has no publications, articles or video links, so each section is explicitly marked Coming soon. Add supplied, approved material to the relevant panel in `src/doctors.html` when available; no citations, doctor credentials or videos have been invented.
 
 Both scene photographs are AI-generated editorial illustrations: a sunlit wellness lounge and an amber glass still life. They are not photographs of an Amber clinic or patient. This is disclosed in the page's privacy information. The source images were generated without branding; the supplied logo is used independently and unchanged.
 
@@ -45,7 +48,9 @@ Production is deployed to Vercel from https://github.com/Code201Org/amberinfusio
 - `src/desktop.html`, `src/desktop.css`: desktop presentation
 - `src/mobile.html`, `src/mobile.css`: approved phone presentation
 - `src/shared.css`: presentation visibility and SVG icon sizing
-- `src/app.js`: shared filters, programme tabs, dialogs and consultation notes
+- `src/app.js`: shared filters, programme tabs, dialogs and WhatsApp enquiry messages
+- `src/contact.json`: business phone number, WhatsApp destination and default message
+- `src/doctors.html`, `src/doctors.css`, `src/doctors.js`: standalone Doctors page and resource tabs
 - `build.mjs`: generates namespaced presentations and the deployable files in `dist/`
 - `dist/assets/`: original logo, generated photographs, locally hosted font files and font licences
 - `server.mjs`: small local development server
@@ -62,3 +67,5 @@ For a manual production deployment from the linked checkout, run `vercel --prod 
 ## Verification
 
 Validated element geometry, fonts and colours against the saved phone design at 320, 390, 430 and 650px, and the original desktop at 1024 and 1440px. The measurements match, including the original SVG arrow container sizes. Checked all filters, seven infusion dialogs, four programmes and consultation/privacy flows in both presentations, plus the consultation flow in Safari at a narrow layout. An actual iPhone device was not used.
+
+Contact and Doctors update: verified the international phone/WhatsApp destinations and contextual message encoding; the Doctors page works at clean and `.html` routes. Its publication, content and video sections intentionally await the user’s material.

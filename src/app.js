@@ -1,3 +1,4 @@
+const contact = __CONTACT__;
 const infusions = {
   glow: { name: 'Amber Glow', family: 'Antioxidant collection', description: 'Antioxidant support for skin health', ingredients: ['Glutathione', 'Vitamin C'] },
   revive: { name: 'Amber Revive', family: 'Antioxidant collection', description: 'Antioxidant and recovery support', ingredients: ['N-acetylcysteine (NAC)', 'Vitamin C'] },
@@ -93,9 +94,11 @@ $$('[data-infusion]').forEach(button => button.addEventListener('click', () => {
 }));
 const interest = $('#interest');
 function updateNote() {
-  $('#enquiry-text').textContent = `I would like to discuss ${interest.value}. Could we review my health history, whether an infusion is appropriate for me, the possible risks and alternatives, and what to expect from a session?`;
-  $('#copy-status').textContent = 'Your note stays on this device. No appointment is booked.';
-  $('#copy-enquiry').textContent = 'Copy consultation note';
+  const note = `Hello Amber Infusions, I would like to enquire about ${interest.value}. Please share the consultation process and available appointment options.`;
+  $('#enquiry-text').textContent = note;
+  $('#whatsapp-enquiry').href = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(note)}`;
+  $('#copy-status').textContent = 'Review your message in WhatsApp before sending. The team will confirm appointment availability.';
+  $('#copy-enquiry').textContent = 'Copy enquiry message';
 }
 function openConsult(selection, origin) {
   const options = [...interest.options].map(option => option.value);
@@ -106,14 +109,14 @@ $$('[data-consult]').forEach(button => button.addEventListener('click', () => op
 interest.addEventListener('change', updateNote);
 $('#copy-enquiry').addEventListener('click', async () => {
   const note = $('#enquiry-text').textContent;
-  try { await navigator.clipboard.writeText(note); $('#copy-enquiry').textContent = 'Note copied'; $('#copy-status').textContent = 'Copied. You can now share this note with your clinician.'; }
-  catch { const range = document.createRange(); range.selectNodeContents($('#enquiry-text')); const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range); $('#copy-status').textContent = 'Select and copy the highlighted note to share it with your clinician.'; }
+  try { await navigator.clipboard.writeText(note); $('#copy-enquiry').textContent = 'Message copied'; $('#copy-status').textContent = 'Copied. You can share this message with Amber Infusions.'; }
+  catch { const range = document.createRange(); range.selectNodeContents($('#enquiry-text')); const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range); $('#copy-status').textContent = 'Select and copy the highlighted enquiry message.'; }
 });
 $('#privacy-button').addEventListener('click', () => {
-  $('#detail-content').innerHTML = `<span class="eyebrow">Your privacy</span><h2 id="${id('detail-title')}">A private first step.</h2><p class="dialog-intro">This landing page does not collect consultation requests, health information or payment details. The consultation note is created in your browser and copied only when you choose to copy it.</p><p class="dialog-intro">We do not use marketing cookies or analytics on this page. Website hosting may process standard connection data to deliver and secure the site.</p><p class="detail-note">Images are illustrative and do not depict an identified Amber clinic or patient. This page provides general information about the range; individual medical advice comes from your clinician.</p>`;
+  $('#detail-content').innerHTML = `<span class="eyebrow">Your privacy</span><h2 id="${id('detail-title')}">A private first step.</h2><p class="dialog-intro">Your enquiry note is prepared in your browser. This website does not store the note, health information or payment details. Choosing WhatsApp opens a prepared message to Amber Infusions at ${contact.display}; you can review it before sending. WhatsApp handles messages under its own privacy policy.</p><p class="dialog-intro">We do not use marketing cookies or analytics on this page. Website hosting may process standard connection data to deliver and secure the site.</p><p class="detail-note">Images are illustrative and do not depict an identified Amber clinic or patient. This page provides general information about the range; individual medical advice comes from your clinician.</p>`;
   detailDialog.setAttribute('aria-labelledby', id('detail-title')); openDialog(detailDialog);
 });
-consultDialog.setAttribute('aria-label', 'Prepare for your Amber consultation');
+consultDialog.setAttribute('aria-label', 'Enquire with Amber Infusions');
 updateNote();
 
 return () => {

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FCF8F0">
+  <title>Doctors — Publications & Resources | Amber Infusions</title>
+  <meta name="description" content="Amber Infusions’ dedicated space for healthcare professionals. Scientific publications, educational content and videos, with resource enquiries on WhatsApp.">
+  <meta property="og:title" content="For Doctors — Amber Infusions">
+  <meta property="og:description" content="A dedicated space for scientific publications, educational content and videos. Our resource library is coming soon.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://amberinfusions.vercel.app/doctors">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23241E16'/%3E%3Ctext x='20' y='29' text-anchor='middle' font-family='Georgia' font-size='30' fill='%23C0892E'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/doctors.css">
+  <script src="/doctors.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Amber Infusions home"><span class="logo-window"><img src="/assets/amber-logo.png" alt="Amber Infusions" width="2334" height="1200"></span></a>
+      <nav aria-label="Main navigation"><a href="/">Home</a><a href="/doctors" aria-current="page">Doctors</a></nav>
+      <a class="header-contact" href="{{DOCTORS_WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer">Contact Amber <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+    </div>
+  </header>
+  <main id="main" class="page-width">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Amber Infusions</a><span aria-hidden="true">/</span><span aria-current="page">Doctors</span></nav>
+    <section class="doctors-hero" aria-labelledby="page-title">
+      <span class="eyebrow"><span class="fine-line" aria-hidden="true"></span>For healthcare professionals</span>
+      <h1 id="page-title">A space for<br><em>clinical perspective.</em></h1>
+      <p>Scientific publications, educational content and videos.<br class="desktop-break"> A dedicated place to explore and stay informed.</p>
+    </section>
+    <div class="library-layout">
+      <section class="resource-library" aria-labelledby="library-title">
+        <div class="library-heading"><h2 id="library-title">The knowledge library</h2><span class="eyebrow">Amber / Resources</span></div>
+        <div class="resource-tabs" role="tablist" aria-label="Resource type" hidden>
+          <button id="tab-publications" role="tab" aria-controls="publications" aria-selected="true" tabindex="0">Publications</button>
+          <button id="tab-content" role="tab" aria-controls="content" aria-selected="false" tabindex="-1">Content</button>
+          <button id="tab-videos" role="tab" aria-controls="videos" aria-selected="false" tabindex="-1">Videos</button>
+        </div>
+        <section id="publications" class="resource-panel" aria-labelledby="publications-title">
+          <div class="resource-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 6h20l8 8v28H10zM30 6v10h8M17 24h14M17 30h14M17 36h8"/></svg></div>
+          <span class="eyebrow status-label">Coming soon</span>
+          <h3 id="publications-title">Scientific publications</h3>
+          <p>Research papers, citations and source links will be added here when available.</p>
+          <a class="text-link" href="{{DOCTORS_WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer">Enquire about publications <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+        </section>
+        <section id="content" class="resource-panel" aria-labelledby="content-title">
+          <div class="resource-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 12c-6-4-12-5-18-4v29c6-1 12 0 18 4 6-4 12-5 18-4V8c-6-1-12 0-18 4ZM24 12v29M12 17l6 2M12 24l6 2M30 19l6-2M30 26l6-2"/></svg></div>
+          <span class="eyebrow status-label">Coming soon</span>
+          <h3 id="content-title">Educational content</h3>
+          <p>Articles, explainers and professional updates will be collected in this section.</p>
+          <a class="text-link" href="{{DOCTORS_WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer">Enquire about content <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+        </section>
+        <section id="videos" class="resource-panel" aria-labelledby="videos-title">
+          <div class="resource-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="5" y="10" width="38" height="28" rx="3"/><path d="m20 17 11 7-11 7z"/></svg></div>
+          <span class="eyebrow status-label">Coming soon</span>
+          <h3 id="videos-title">Videos & discussions</h3>
+          <p>Educational videos and recorded conversations will be shared here as they become available.</p>
+          <a class="text-link" href="{{DOCTORS_WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer">Enquire about videos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+        </section>
+      </section>
+      <aside class="contact-card" aria-labelledby="contact-title">
+        <span class="eyebrow">A direct conversation</span>
+        <h2 id="contact-title">Connect<br>with <em>Amber.</em></h2>
+        <p>For resource requests, product information and professional enquiries, get in touch with our team.</p>
+        <a class="button" href="{{DOCTORS_WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+        <a class="phone-link" href="{{PHONE_HREF}}">Call {{PHONE_DISPLAY}}</a>
+      </aside>
+    </div>
+    <p class="library-note">Our library is being prepared. Contact Amber for information about upcoming resources.</p>
+  </main>
+  <footer class="site-footer page-width"><div><a class="brand" href="/" aria-label="Amber Infusions home"><span class="logo-window"><img src="/assets/amber-logo.png" alt="Amber Infusions" width="2334" height="1200" loading="lazy"></span></a><p>By Lumière X Medicals.</p></div><nav aria-label="Footer navigation"><a href="/">Explore Amber</a><a href="{{PHONE_HREF}}">{{PHONE_DISPLAY}}</a><a href="{{DOCTORS_WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer">WhatsApp enquiries</a></nav><div class="footer-bottom"><span>© <span id="year">2026</span> Amber Infusions</span><span>Care that begins with a conversation.</span></div></footer>
+</body>
+</html>
