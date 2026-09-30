@@ -1,6 +1,6 @@
 # Amber Infusions
 
-A minimal, responsive brand landing page with local image and font assets, modern sans-serif typography, white surfaces and restrained amber accents. No external runtime dependencies, tracking, payment collection, or backend database.
+A responsive brand landing page with warm cream surfaces, gold accents, serif headings and locally hosted imagery and fonts. The website files match the original design selected by the owner, preserved in commit `480f5fc`. Production uses GitHub and Vercel.
 
 ## Preview
 
@@ -12,8 +12,7 @@ Run `npm run dev` in this directory, then open http://127.0.0.1:4173. Use `PORT=
 
 - Original logo extracted intact from the supplied kit specification.
 - Responsive layouts for desktop, tablet and phone.
-- Phone-specific full-screen navigation, compact programme selection and consultation sheets.
-- Mobile enhancements preserve the desktop rendering at 1024, 1280 and 1440 pixels.
+- Responsive navigation, stacked phone layouts and consultation dialogs.
 - Seven public-facing infusion formulations with category filters and ingredient detail dialogs.
 - Four interactive programmes with keyboard-accessible tabs.
 - Expandable FAQs and a consultation-note planner with copy support.
@@ -27,11 +26,11 @@ The public collection uses the seven core infusion names in the brand guidelines
 
 The consultation CTA currently creates a note in the visitor's browser. It does not book or submit an appointment. Replace this with the business's verified booking, WhatsApp or contact destination when supplied. No phone number, email address, clinic location, pricing, credentials, reviews or results have been invented.
 
-Both scene photographs are AI-generated editorial illustrations: a bright clinical interior and a water still life. They are not photographs of an Amber clinic or patient. This is disclosed in the page's privacy information. The source images were generated without branding; the supplied logo is used independently and unchanged.
+Both scene photographs are AI-generated editorial illustrations: a sunlit wellness lounge and an amber glass still life. They are not photographs of an Amber clinic or patient. This is disclosed in the page's privacy information. The source images were generated without branding; the supplied logo is used independently and unchanged.
 
 The Instagram share link resolves to https://www.instagram.com/dermalightinfusion/ and is treated as visual reference, not as Amber's official account. Competitor references were REVIV, The Wellness Co. and VLCC.
 
-Use medical-director-reviewed copy for a public commercial launch, as requested by the supplied brand guidelines. Production is deployed to Vercel from the GitHub repository at https://github.com/Code201Org/amberinfusions. The earlier private Sites preview is a separate deployment.
+Production is deployed to Vercel from https://github.com/Code201Org/amberinfusions. The original design reference was https://amber-infusions.info349831.chatgpt.site/. That URL is a historical reference; publishing is configured for Vercel only.
 
 ## Files
 
@@ -41,9 +40,8 @@ Use medical-director-reviewed copy for a public commercial launch, as requested 
 - `dist/assets/`: original logo, generated photographs, locally hosted font files and font licences
 - `server.mjs`: small local development server
 - `vercel.json`: Vercel static output and validation configuration
-- `.openai/hosting.json`: retained identity of the earlier Sites preview
 
-The current typography uses locally hosted Manrope. Font licences are included in `dist/assets/`.
+Typography uses Cambria and Calibri where available, with locally hosted Caladea and Carlito fallbacks. Font licences are included in `dist/assets/`.
 
 ## Publishing
 
@@ -53,4 +51,4 @@ For a manual production deployment from the linked checkout, run `vercel --prod 
 
 ## Verification
 
-Checked navigation, infusion filters, seven detail dialogs, four programmes, consultation selection and copying, and FAQs. Layout checks cover 320–844 pixel viewports, including phone landscape, plus 200% text enlargement. Desktop screenshots before and after the mobile changes are pixel-identical at 1024, 1280 and 1440 pixels.
+Run `npm run check` for JavaScript syntax validation. The restored `dist/` directory can be verified against the selected design with `git diff 480f5fc -- dist` (no differences expected).
