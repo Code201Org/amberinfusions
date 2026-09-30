@@ -19,10 +19,23 @@ const programmes = {
 $('#year').textContent = new Date().getFullYear();
 const menuButton = $('.menu-toggle');
 const mobileNav = $('#mobile-nav');
-function closeMenu() { menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Open navigation'); mobileNav.hidden = true; }
-menuButton.addEventListener('click', () => { const expanded = menuButton.getAttribute('aria-expanded') === 'true'; menuButton.setAttribute('aria-expanded', String(!expanded)); menuButton.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation'); mobileNav.hidden = expanded; });
+function setMenu(open) {
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  mobileNav.hidden = !open;
+  document.body.classList.toggle('menu-open', open);
+  $('main').inert = open;
+  $('footer').inert = open;
+}
+function closeMenu() { setMenu(false); }
+menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
 $$('a, button', mobileNav).forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+    closeMenu();
+    menuButton.focus();
+  }
+});
 matchMedia('(min-width: 901px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
 $$('[data-filter]').forEach(button => button.addEventListener('click', () => {
@@ -30,7 +43,7 @@ $$('[data-filter]').forEach(button => button.addEventListener('click', () => {
   $$('[data-filter]').forEach(item => { const active = item === button; item.classList.toggle('active', active); item.setAttribute('aria-pressed', String(active)); });
   let visible = 0;
   $$('.infusion-card').forEach(card => { card.hidden = family !== 'all' && card.dataset.family !== family; if (!card.hidden) visible++; });
-  $('.collection-count').textContent = `${String(visible).padStart(2, '0')} / 07 formulations`;
+  $('.collection-count').textContent = `${visible} of 7 formulations`;
   $('#b12-note').hidden = family === 'antioxidant';
 }));
 

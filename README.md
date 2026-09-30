@@ -1,6 +1,6 @@
 # Amber Infusions
 
-A responsive brand landing page with warm cream surfaces, gold accents, serif headings and locally hosted imagery and fonts. The website files match the original design selected by the owner, preserved in commit `480f5fc`. Production uses GitHub and Vercel.
+A minimal, responsive brand landing page with warm cream surfaces, gold accents, serif headings and locally hosted imagery and fonts. The simplified layout retains the original brand palette, logo and photographs while reducing repeated copy and decorative elements. Production uses GitHub and Vercel.
 
 ## Preview
 
@@ -12,7 +12,7 @@ Run `npm run dev` in this directory, then open http://127.0.0.1:4173. Use `PORT=
 
 - Original logo extracted intact from the supplied kit specification.
 - Responsive layouts for desktop, tablet and phone.
-- Responsive navigation, stacked phone layouts and consultation dialogs.
+- Full-height mobile navigation, compact programme selection and stacked phone layouts.
 - Seven public-facing infusion formulations with category filters and ingredient detail dialogs.
 - Four interactive programmes with keyboard-accessible tabs.
 - Expandable FAQs and a consultation-note planner with copy support.
@@ -41,7 +41,7 @@ Production is deployed to Vercel from https://github.com/Code201Org/amberinfusio
 - `server.mjs`: small local development server
 - `vercel.json`: Vercel static output and validation configuration
 
-Typography uses Cambria and Calibri where available, with locally hosted Caladea and Carlito fallbacks. Font licences are included in `dist/assets/`.
+Typography pairs locally hosted Caladea headings with Manrope body text. Font licences are included in `dist/assets/`.
 
 ## Publishing
 
@@ -51,4 +51,4 @@ For a manual production deployment from the linked checkout, run `vercel --prod 
 
 ## Verification
 
-Run `npm run check` for JavaScript syntax validation. The restored `dist/` directory can be verified against the selected design with `git diff 480f5fc -- dist` (no differences expected).
+Run `npm run check` for JavaScript syntax validation. Before publishing, check desktop and phone layouts, mobile navigation, all collection filters and detail dialogs, programme tabs, FAQs and consultation notes.
