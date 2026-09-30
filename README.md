@@ -1,12 +1,12 @@
 # Amber Infusions
 
-A minimal, responsive brand landing page with warm cream surfaces, gold accents, serif headings and locally hosted imagery and fonts. The simplified layout retains the original brand palette, logo and photographs while reducing repeated copy and decorative elements. Production uses GitHub and Vercel.
+A responsive brand landing page with warm cream surfaces, gold accents, serif headings and locally hosted imagery and fonts. The desktop presentation restores the original design from `d8aa708`; phones retain the approved minimal design from `da4f79b`. Production uses GitHub and Vercel.
 
 ## Preview
 
 Run `npm run dev` in this directory, then open http://127.0.0.1:4173. Use `PORT=4174 npm run dev` to choose another port.
 
-`dist/` is the complete deployable website. Run `npm run check` to check the site JavaScript syntax.
+`npm run dev` builds the source and starts the preview. After editing `src/`, run `npm run build` and reload the browser. `dist/` is the generated deployable website; do not edit its generated HTML, CSS or JavaScript directly. Run `npm run check` to check JavaScript syntax.
 
 ## Features
 
@@ -17,6 +17,13 @@ Run `npm run dev` in this directory, then open http://127.0.0.1:4173. Use `PORT=
 - Four interactive programmes with keyboard-accessible tabs.
 - Expandable FAQs and a consultation-note planner with copy support.
 - Local, compressed imagery and fonts; reduced-motion and keyboard support.
+- Fixed SVG arrows preserve button geometry and avoid font substitution in Safari and on iOS.
+
+## Responsive presentation
+
+`src/desktop.html` and `src/desktop.css` preserve the original desktop design above 650px. `src/mobile.html` and `src/mobile.css` preserve the approved phone layout at 650px and below. Keep changes limited to the intended presentation.
+
+The build gives each presentation unique IDs and updates its accessibility and anchor references. CSS hides the inactive presentation before JavaScript runs, including from keyboard navigation and the accessibility tree. Both use the shared interaction code in `src/app.js`. Resizing across the breakpoint closes transient menus/dialogs and maps section links to the visible presentation.
 
 ## Content and launch notes
 
@@ -34,21 +41,24 @@ Production is deployed to Vercel from https://github.com/Code201Org/amberinfusio
 
 ## Files
 
-- `dist/index.html`: content and page structure
-- `dist/styles.css`: brand styling and responsive layouts
-- `dist/app.js`: filters, programme tabs, dialogs and consultation note
+- `src/document.html`: shared document head
+- `src/desktop.html`, `src/desktop.css`: desktop presentation
+- `src/mobile.html`, `src/mobile.css`: approved phone presentation
+- `src/shared.css`: presentation visibility and SVG icon sizing
+- `src/app.js`: shared filters, programme tabs, dialogs and consultation notes
+- `build.mjs`: generates namespaced presentations and the deployable files in `dist/`
 - `dist/assets/`: original logo, generated photographs, locally hosted font files and font licences
 - `server.mjs`: small local development server
 - `vercel.json`: Vercel static output and validation configuration
 
-Typography pairs locally hosted Caladea headings with Manrope body text. Font licences are included in `dist/assets/`.
+Desktop typography retains Cambria/Calibri with local Caladea/Carlito fallbacks. Phone typography retains locally hosted Caladea and Manrope. Font licences are included in `dist/assets/`.
 
 ## Publishing
 
-The Git remote is `git@github.com:Code201Org/amberinfusions.git`, with production on `main`. The Vercel project is `code201/amberinfusions`, configured to serve `dist/` after `npm run check`. Git pushes are connected to Vercel deployment.
+The Git remote is `git@github.com:Code201Org/amberinfusions.git`, with production on `main`. The Vercel project is `code201/amberinfusions`, configured to serve `dist/` after `npm run build && npm run check`. Git pushes are connected to Vercel deployment.
 
 For a manual production deployment from the linked checkout, run `vercel --prod --yes --scope code201`. Vercel authentication files and local environment files are ignored by both Git and deployment packaging.
 
 ## Verification
 
-Run `npm run check` for JavaScript syntax validation. Before publishing, check desktop and phone layouts, mobile navigation, all collection filters and detail dialogs, programme tabs, FAQs and consultation notes.
+Validated element geometry, fonts and colours against the saved phone design at 320, 390, 430 and 650px, and the original desktop at 1024 and 1440px. The measurements match, including the original SVG arrow container sizes. Checked all filters, seven infusion dialogs, four programmes and consultation/privacy flows in both presentations, plus the consultation flow in Safari at a narrow layout. An actual iPhone device was not used.

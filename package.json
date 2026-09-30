@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "Amber Infusions brand landing page",
   "scripts": {
-    "dev": "node server.mjs",
+    "build": "node build.mjs",
+    "dev": "npm run build && node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check dist/app.js"
+    "check": "node --check src/app.js && node --check build.mjs && node --check dist/app.js"
   }
 }
