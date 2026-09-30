@@ -1,0 +1,11 @@
+{
+  "name": "amber-infusions",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Amber Infusions brand landing page",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check dist/app.js"
+  }
+}
